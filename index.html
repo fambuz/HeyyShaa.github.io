@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ♡</title>
+
 <style>
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+
+  html{
+    scroll-behavior:smooth;
+  }
+
   body{
     margin:0;
     color:#38253f;
@@ -14,7 +19,10 @@
     font-family:Georgia,"Times New Roman",serif;
     overflow-x:hidden;
   }
-  button{font:inherit}
+
+  button{
+    font:inherit;
+  }
 
   body:before{
     content:"";
@@ -36,11 +44,21 @@
     padding:70px 22px;
   }
 
+  /* =========================
+     HERO
+  ========================= */
+
   .hero{
     text-align:center;
     min-height:100vh;
     flex-direction:column;
-    background:radial-gradient(circle at 50% 30%,#eadcff 0,#fbf7ff 43%,#f1e8f8 100%);
+    background:
+      radial-gradient(
+        circle at 50% 30%,
+        #eadcff 0,
+        #fbf7ff 43%,
+        #f1e8f8 100%
+      );
   }
 
   .tiny{
@@ -81,7 +99,12 @@
     cursor:pointer;
     transition:.25s;
   }
-  .enter:hover{background:#6f3b86;color:white;transform:translateY(-3px)}
+
+  .enter:hover{
+    background:#6f3b86;
+    color:white;
+    transform:translateY(-3px);
+  }
 
   .scroll{
     position:absolute;
@@ -90,6 +113,10 @@
     letter-spacing:2px;
     color:#8e7198;
   }
+
+  /* =========================
+     NAVIGATION
+  ========================= */
 
   nav{
     position:fixed;
@@ -105,7 +132,11 @@
     display:none;
     gap:4px;
   }
-  nav.show{display:flex}
+
+  nav.show{
+    display:flex;
+  }
+
   nav button{
     border:0;
     background:transparent;
@@ -115,15 +146,26 @@
     cursor:pointer;
     font-size:12px;
   }
-  nav button:hover{background:#e8ddf1}
 
-  .section-inner{width:min(1000px,100%)}
+  nav button:hover{
+    background:#e8ddf1;
+  }
+
+  /* =========================
+     GENERAL SECTIONS
+  ========================= */
+
+  .section-inner{
+    width:min(1000px,100%);
+  }
+
   .section-title{
     font-size:clamp(38px,7vw,65px);
     font-weight:normal;
     color:#6f3b86;
     margin:0 0 12px;
   }
+
   .section-sub{
     color:#80668b;
     line-height:1.7;
@@ -131,12 +173,20 @@
     margin-bottom:42px;
   }
 
-  #reasons{background:#ffffff}
+  /* =========================
+     REASONS
+  ========================= */
+
+  #reasons{
+    background:#ffffff;
+  }
+
   .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
   }
+
   .card{
     padding:30px 25px;
     min-height:190px;
@@ -146,56 +196,36 @@
     transform:rotate(var(--r));
     transition:.3s;
   }
-  .card:hover{transform:rotate(0) translateY(-7px)}
+
+  .card:hover{
+    transform:rotate(0) translateY(-7px);
+  }
+
   .number{
     font:12px Arial,sans-serif;
     letter-spacing:2px;
     color:#9868b0;
   }
+
   .card h3{
     font-size:23px;
     font-weight:normal;
     margin:20px 0 10px;
     color:#704080;
   }
-  .card p{line-height:1.7;margin:0;color:#705a78}
 
-  #memory{background:#eee4f3}
-
-  /* MEMORY PHOTO GALLERY */
-  .memory-tools{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:0 0 38px;
+  .card p{
+    line-height:1.7;
+    margin:0;
+    color:#705a78;
   }
 
-  .upload-button{
-    display:inline-block;
-    border:1px solid #8e4fa8;
-    color:#6f3b86;
-    background:#fbf7ff;
-    padding:13px 24px;
-    border-radius:50px;
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 8px 25px rgba(72,42,88,.07);
-  }
-  .upload-button:hover{
-    background:#6f3b86;
-    color:white;
-    transform:translateY(-3px);
-  }
+  /* =========================
+     MEMORY SECTION
+  ========================= */
 
-  .memory-note{
-    text-align:center;
-    color:#80668b;
-    font-size:13px;
-    line-height:1.6;
-    margin:-22px auto 35px;
-    max-width:650px;
+  #memory{
+    background:#eee4f3;
   }
 
   .memory-gallery{
@@ -213,12 +243,20 @@
     position:relative;
     cursor:pointer;
   }
-  .photo-memory:nth-child(odd){transform:rotate(-2deg)}
-  .photo-memory:nth-child(even){transform:rotate(2deg)}
+
+  .photo-memory:nth-child(odd){
+    transform:rotate(-2deg);
+  }
+
+  .photo-memory:nth-child(even){
+    transform:rotate(2deg);
+  }
+
   .photo-memory:hover{
     transform:rotate(0) translateY(-8px) scale(1.01);
     z-index:2;
   }
+
   .photo-memory img{
     width:100%;
     aspect-ratio:4/5;
@@ -231,6 +269,7 @@
     text-align:center;
     padding-top:16px;
   }
+
   .photo-date{
     font:10px Arial,sans-serif;
     letter-spacing:2px;
@@ -238,12 +277,14 @@
     color:#a174b7;
     margin-bottom:8px;
   }
+
   .photo-caption h3{
     margin:0 0 7px;
     font-weight:normal;
     font-size:21px;
     color:#6f3b86;
   }
+
   .photo-caption p{
     margin:0;
     color:#80668b;
@@ -251,50 +292,46 @@
     line-height:1.5;
   }
 
-  .delete-photo{
-    position:absolute;
-    top:8px;
-    right:8px;
-    width:30px;
-    height:30px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,.94);
-    color:#6f3b86;
-    cursor:pointer;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
-    opacity:0;
-    transition:.2s;
-    z-index:3;
-  }
-  .photo-memory:hover .delete-photo{opacity:1}
+  /* =========================
+     MEMORY TIMELINE
+  ========================= */
 
   .timeline{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:30px;
   }
+
   .memory{
     background:#fdfaff;
     padding:25px;
     border:1px solid #dfd2e7;
     box-shadow:0 12px 30px rgba(72,42,88,.08);
   }
+
   .memory .date{
     font:11px Arial,sans-serif;
     letter-spacing:2px;
     text-transform:uppercase;
     color:#9060a5;
   }
+
   .memory h3{
     font-size:26px;
     font-weight:normal;
     margin:13px 0;
     color:#6f3b86;
   }
-  .memory p{line-height:1.75;color:#705a78}
 
-  /* Lightbox */
+  .memory p{
+    line-height:1.75;
+    color:#705a78;
+  }
+
+  /* =========================
+     LIGHTBOX
+  ========================= */
+
   .lightbox{
     position:fixed;
     inset:0;
@@ -306,24 +343,31 @@
     background:rgba(16,8,19,.88);
     backdrop-filter:blur(8px);
   }
-  .lightbox.show{display:flex}
+
+  .lightbox.show{
+    display:flex;
+  }
+
   .lightbox-content{
     position:relative;
     max-width:min(900px,92vw);
     max-height:92vh;
     text-align:center;
   }
+
   .lightbox-content img{
     max-width:100%;
     max-height:75vh;
     object-fit:contain;
     box-shadow:0 25px 70px rgba(0,0,0,.35);
   }
+
   .lightbox-caption{
     color:#f4eaff;
     margin-top:14px;
     line-height:1.6;
   }
+
   .close-lightbox{
     position:absolute;
     top:-14px;
@@ -336,9 +380,17 @@
     border-radius:50%;
     cursor:pointer;
     font-size:20px;
+    z-index:5;
   }
 
-  #letter{background:#ffffff}
+  /* =========================
+     LOVE LETTER
+  ========================= */
+
+  #letter{
+    background:#ffffff;
+  }
+
   .paper{
     background:#fbf7ff;
     max-width:760px;
@@ -348,6 +400,7 @@
     box-shadow:0 20px 55px rgba(61,38,75,.11);
     position:relative;
   }
+
   .paper:before{
     content:"";
     position:absolute;
@@ -355,18 +408,24 @@
     border:1px dashed #cbb7d9;
     pointer-events:none;
   }
-  .paper-content{position:relative}
+
+  .paper-content{
+    position:relative;
+  }
+
   .dear{
     font-size:31px;
     color:#6f3b86;
     font-style:italic;
     margin-bottom:25px;
   }
+
   .paper p{
     font-size:17px;
     line-height:2;
     margin:0 0 20px;
   }
+
   .signature{
     margin-top:30px;
     font-size:34px;
@@ -374,13 +433,31 @@
     font-style:italic;
   }
 
+  /* =========================
+     SECRET
+  ========================= */
+
   #secret{
-    background:radial-gradient(circle at 50% 45%,#2b1837,#100813 65%);
+    background:
+      radial-gradient(
+        circle at 50% 45%,
+        #2b1837,
+        #100813 65%
+      );
     color:white;
     text-align:center;
   }
-  #secret .section-title{color:#ead9ff}
-  #secret .section-sub{color:#bea7c9;margin-left:auto;margin-right:auto}
+
+  #secret .section-title{
+    color:#ead9ff;
+  }
+
+  #secret .section-sub{
+    color:#bea7c9;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
   .lock{
     width:110px;
     height:110px;
@@ -393,28 +470,76 @@
     cursor:pointer;
     transition:.4s;
   }
-  .lock:hover{transform:rotate(12deg) scale(1.05);border-color:#c89ce2}
-  #secretMessage{display:none;max-width:600px;margin:auto;animation:appear .8s ease}
-  #secretMessage.show{display:block}
-  #secretMessage h3{font-size:40px;font-weight:normal;color:#dec0ff;margin:15px 0}
-  #secretMessage p{line-height:1.9;color:#d5c4df}
+
+  .lock:hover{
+    transform:rotate(12deg) scale(1.05);
+    border-color:#c89ce2;
+  }
+
+  #secretMessage{
+    display:none;
+    max-width:600px;
+    margin:auto;
+    animation:appear .8s ease;
+  }
+
+  #secretMessage.show{
+    display:block;
+  }
+
+  #secretMessage h3{
+    font-size:40px;
+    font-weight:normal;
+    color:#dec0ff;
+    margin:15px 0;
+  }
+
+  #secretMessage p{
+    line-height:1.9;
+    color:#d5c4df;
+  }
 
   @keyframes appear{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:none}
+    from{
+      opacity:0;
+      transform:translateY(20px);
+    }
+
+    to{
+      opacity:1;
+      transform:none;
+    }
   }
+
+  /* =========================
+     ENDING
+  ========================= */
 
   #ending{
     min-height:85vh;
     text-align:center;
     background:#f2e9f8;
   }
-  .big-heart{font-size:72px;animation:beat 1.25s infinite}
-  @keyframes beat{
-    0%,100%{transform:scale(1)}
-    15%{transform:scale(1.15)}
-    30%{transform:scale(1)}
+
+  .big-heart{
+    font-size:72px;
+    animation:beat 1.25s infinite;
   }
+
+  @keyframes beat{
+    0%,100%{
+      transform:scale(1);
+    }
+
+    15%{
+      transform:scale(1.15);
+    }
+
+    30%{
+      transform:scale(1);
+    }
+  }
+
   #ending h2{
     font-size:clamp(48px,9vw,90px);
     font-weight:normal;
@@ -422,7 +547,17 @@
     color:#6f3b86;
     margin:12px 0;
   }
-  #ending p{line-height:1.8;max-width:570px;margin:0 auto;color:#705a78}
+
+  #ending p{
+    line-height:1.8;
+    max-width:570px;
+    margin:0 auto;
+    color:#705a78;
+  }
+
+  /* =========================
+     FLOATING HEARTS
+  ========================= */
 
   .heart{
     position:fixed;
@@ -431,21 +566,52 @@
     animation:rise 4s linear forwards;
     bottom:-30px;
   }
+
   @keyframes rise{
-    to{transform:translateY(-110vh) rotate(30deg);opacity:0}
+    to{
+      transform:translateY(-110vh) rotate(30deg);
+      opacity:0;
+    }
   }
 
+  /* =========================
+     MOBILE
+  ========================= */
+
   @media(max-width:700px){
-    .cards,.timeline,.memory-gallery{grid-template-columns:1fr}
-    .card{transform:none}
-    nav button{padding:8px 9px;font-size:10px}
-    .paper p{font-size:15.5px}
-    .delete-photo{opacity:1}
+
+    .cards,
+    .timeline,
+    .memory-gallery{
+      grid-template-columns:1fr;
+    }
+
+    .card{
+      transform:none;
+    }
+
+    nav button{
+      padding:8px 9px;
+      font-size:10px;
+    }
+
+    .paper p{
+      font-size:15.5px;
+    }
+
+    .photo-memory:nth-child(odd),
+    .photo-memory:nth-child(even){
+      transform:rotate(0);
+    }
   }
 </style>
 </head>
 
 <body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav id="nav">
   <button onclick="go('home')">home</button>
@@ -455,336 +621,830 @@
   <button onclick="go('secret')">secret</button>
 </nav>
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="page hero" id="home">
+
   <div>
-    <div class="tiny">a little gift, made especially for <span id="heroCrush">you</span></div>
-    <h1>For <span>You.</span></h1>
+
+    <div class="tiny">
+      a little gift, made especially for
+      <span id="heroCrush">you</span>
+    </div>
+
+    <h1>
+      For
+      <span>You.</span>
+    </h1>
+
     <p>
       I made this little corner of the internet to keep some good memories
       in one place.
       <br><br>
       <em>No big expectations. Just something I wanted you to have.</em>
     </p>
-    <button class="enter" onclick="startGift()">open your gift ♡</button>
+
+    <button class="enter" onclick="startGift()">
+      open your gift ♡
+    </button>
+
   </div>
-  <div class="scroll">↓ keep scrolling</div>
+
+  <div class="scroll">
+    ↓ keep scrolling
+  </div>
+
 </section>
 
-<!-- REASONS -->
+
+<!-- =========================
+     REASONS
+========================= -->
+
 <section class="page" id="reasons">
+
   <div class="section-inner">
-    <div class="tiny">the little things</div>
-    <h2 class="section-title">Things I'll always appreciate</h2>
+
+    <div class="tiny">
+      the little things
+    </div>
+
+    <h2 class="section-title">
+      Things I'll always appreciate
+    </h2>
+
     <p class="section-sub">
       Not a list of reasons to love you. Just a few small things about you
       that I've been grateful to know.
     </p>
 
+
     <div class="cards">
-      <div class="card" style="--r:-2deg"><div class="number">01</div><h3>Your smile</h3><p>It has a strange ability to make a completely normal moment feel better.</p></div>
-      <div class="card" style="--r:1.5deg"><div class="number">02</div><h3>Your humour</h3><p>I've lost count of the random conversations that ended with me smiling.</p></div>
-      <div class="card" style="--r:-1deg"><div class="number">03</div><h3>The little moments</h3><p>Even the random conversations somehow become memories I want to keep.</p></div>
-      <div class="card" style="--r:1deg"><div class="number">04</div><h3>Your energy</h3><p>Being around you has made plenty of normal days more memorable.</p></div>
-      <div class="card" style="--r:-1.5deg"><div class="number">05</div><h3>The unexpected</h3><p>You have a way of making plans, jokes, and random days more interesting.</p></div>
-      <div class="card" style="--r:2deg"><div class="number">06</div><h3>I'm glad we met</h3><p>No matter where life goes, I'm genuinely grateful our paths crossed.</p></div>
+
+      <div class="card" style="--r:-2deg">
+        <div class="number">01</div>
+        <h3>Your smile</h3>
+        <p>
+          It has a strange ability to make a completely normal moment feel better.
+        </p>
+      </div>
+
+
+      <div class="card" style="--r:1.5deg">
+        <div class="number">02</div>
+        <h3>Your humour</h3>
+        <p>
+          I've lost count of the random conversations that ended with me smiling.
+        </p>
+      </div>
+
+
+      <div class="card" style="--r:-1deg">
+        <div class="number">03</div>
+        <h3>The little moments</h3>
+        <p>
+          Even the random conversations somehow become memories I want to keep.
+        </p>
+      </div>
+
+
+      <div class="card" style="--r:1deg">
+        <div class="number">04</div>
+        <h3>Your energy</h3>
+        <p>
+          Being around you has made plenty of normal days more memorable.
+        </p>
+      </div>
+
+
+      <div class="card" style="--r:-1.5deg">
+        <div class="number">05</div>
+        <h3>The unexpected</h3>
+        <p>
+          You have a way of making plans, jokes, and random days more interesting.
+        </p>
+      </div>
+
+
+      <div class="card" style="--r:2deg">
+        <div class="number">06</div>
+        <h3>I'm glad we met</h3>
+        <p>
+          No matter where life goes, I'm genuinely grateful our paths crossed.
+        </p>
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- MEMORY TIMELINE + PHOTO GALLERY -->
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
 <section class="page" id="memory">
+
   <div class="section-inner">
-    <div class="tiny">the memories</div>
-    <h2 class="section-title">Moments worth keeping</h2>
+
+    <div class="tiny">
+      the memories
+    </div>
+
+    <h2 class="section-title">
+      Moments worth keeping
+    </h2>
+
     <p class="section-sub">
       A little collection of moments I'm glad happened. Nothing to prove,
       nothing to expect — just memories that deserve a place somewhere.
     </p>
-   
+
+
+    <!-- PHOTO GALLERY -->
     <div id="memoryGallery" class="memory-gallery"></div>
 
+
+    <!-- TIMELINE -->
     <div class="timeline">
+
       <div class="memory">
-        <div class="date">the beginning</div>
-        <h3>When our paths crossed</h3>
-        <p>When i first saw your profile at leomatch, i was so excited since ive been meaning to find a cosplayer friend. Waited so long for you to like back though lmao. No pressure.</p>
+
+        <div class="date">
+          the beginning
+        </div>
+
+        <h3>
+          When our paths crossed
+        </h3>
+
+        <p>
+          When i first saw your profile at leomatch, i was so excited since
+          ive been meaning to find a cosplayer friend. Waited so long for
+          you to like back though lmao. No pressure.
+        </p>
+
       </div>
+
+
       <div class="memory">
-        <div class="date">one random day</div>
-        <h3>That conversation</h3>
-        <p>I love our early long convo about your past ex being an asshole and you agreeing with my insults towards him (ToT) and also where you encounter a very rude customer while your working, hate that guy.</p>
+
+        <div class="date">
+          one random day
+        </div>
+
+        <h3>
+          That conversation
+        </h3>
+
+        <p>
+          I love our early long convo about your past ex being an asshole
+          and you agreeing with my insults towards him (ToT) and also where
+          you encounter a very rude customer while your working, hate that guy!
+        </p>
+
       </div>
+
+
       <div class="memory">
-        <div class="date">somewhere between</div>
-        <h3>A favourite memory</h3>
-        <p>Not much but i really cherished our first meeting ever at animangaki, OH and also where you got your period and i panic like an idiot? lmao :P, silly me.</p>
+
+        <div class="date">
+          somewhere between
+        </div>
+
+        <h3>
+          A favourite memory
+        </h3>
+
+        <p>
+          Not much but i really cherished our first meeting ever at animangaki,
+          OH and also where you got your period and i panic like an idiot?
+          lmao :P, silly me.
+        </p>
+
       </div>
+
+
       <div class="memory">
-        <div class="date">right now</div>
-        <h3>This little website</h3>
-        <p>Technically, making this became another memory. I'm really glad I got to make it.</p>
+
+        <div class="date">
+          right now
+        </div>
+
+        <h3>
+          This little website
+        </h3>
+
+        <p>
+          Technically, making this became another memory.
+          I'm really glad I got to make it.
+        </p>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  onclick="closeLightbox(event)"
+>
+
   <div class="lightbox-content">
-    <button class="close-lightbox" onclick="closeLightbox()">×</button>
-    <img id="lightboxImage" src="" alt="Memory photo">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
+
+    <button
+      class="close-lightbox"
+      onclick="closeLightbox()"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Memory photo"
+    >
+
+    <div
+      class="lightbox-caption"
+      id="lightboxCaption"
+    ></div>
+
   </div>
+
 </div>
 
-<!-- LOVE LETTER -->
+
+<!-- =========================
+     LOVE LETTER
+========================= -->
+
 <section class="page" id="letter">
+
   <div class="section-inner">
-    <div class="tiny">a little note</div>
+
+    <div class="tiny">
+      a little note
+    </div>
+
     <div class="paper">
+
       <div class="paper-content">
-        <div class="dear">Dear <span id="crush">you</span>,</div>
-        <p>Maybe I won't always know the right thing to say, especially when life feels heavy or when things between us feel a little complicated. So I wanted to leave this here instead.</p>
-        <p>I still care about you, and I won't pretend those feelings disappeared just because things didn't turn out the way I once hoped. But more than anything, I want you to feel comfortable around me. I don't want my feelings to become something you have to carry.</p>
-        <p>I know there is someone else you care about, and I respect that. I'm not asking you to change your feelings, choose me, or give me an answer. I just want to be someone you can talk to, laugh with, and be yourself around without feeling pressured.</p>
-        <p>You don't have to figure everything out at once, and neither do I. I don't want to walk away from the friendship or the memories we've made just because my heart got a little ahead of me. I'd rather make things right, take things slowly, and let things feel natural again.</p>
-        <p>So whenever things feel awkward, you don't have to wonder where I stand. I'm still here, and I'm trying to learn how to care about you in a way that feels safe, comfortable, and kind for both of us.</p>
-        <p>I also just wanted you to know that meeting you was something I'm genuinely thankful for. Whatever happens from here, I hope life is kind to you, and I hope some of these memories make you smile someday.</p>
-        <p>PS no i totally didnt shed any tears while typing this lol ( ´;ﾟ;∀;ﾟ;)</p>
-        <div class="signature">— <span id="sender">your name</span> ♡</div>
+
+        <div class="dear">
+          Dear <span id="crush">you</span>,
+        </div>
+
+
+        <p>
+          Maybe I won't always know the right thing to say, especially when
+          life feels heavy or when things between us feel a little complicated.
+          So I wanted to leave this here instead.
+        </p>
+
+
+        <p>
+          I still care about you, and I won't pretend those feelings disappeared
+          just because things didn't turn out the way I once hoped. But more
+          than anything, I want you to feel comfortable around me. I don't want
+          my feelings to become something you have to carry.
+        </p>
+
+
+        <p>
+          I know there is someone else you care about, and I respect that.
+          I'm not asking you to change your feelings, choose me, or give me
+          an answer. I just want to be someone you can talk to, laugh with,
+          and be yourself around without feeling pressured.
+        </p>
+
+
+        <p>
+          You don't have to figure everything out at once, and neither do I.
+          I don't want to walk away from the friendship or the memories we've
+          made just because my heart got a little ahead of me. I'd rather make
+          things right, take things slowly, and let things feel natural again.
+        </p>
+
+
+        <p>
+          So whenever things feel awkward, you don't have to wonder where I
+          stand. I'm still here, and I'm trying to learn how to care about you
+          in a way that feels safe, comfortable, and kind for both of us.
+        </p>
+
+
+        <p>
+          I also just wanted you to know that meeting you was something I'm
+          genuinely thankful for. Whatever happens from here, I hope life is
+          kind to you, and I hope some of these memories make you smile someday.
+        </p>
+
+
+        <p>
+          PS no i totally didnt shed any tears while typing this lol
+          ( ´;ﾟ;∀;ﾟ;)
+        </p>
+
+
+        <div class="signature">
+          — <span id="sender">your name</span> ♡
+        </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- SECRET -->
+
+<!-- =========================
+     SECRET
+========================= -->
+
 <section class="page" id="secret">
+
   <div class="section-inner">
-    <div class="lock" onclick="unlock()">♡</div>
-    <div class="tiny" style="color:#b98196">one more thing</div>
-    <h2 class="section-title">A tiny thank you</h2>
-    <p class="section-sub">There is one last little message hidden here. You don't have to click it.</p>
-    <div id="secretMessage">
-      <h3>Okay, you found it. ♡</h3>
-      <p>Thank you for the laughs, the conversations, and the memories. I hope you know you have been a genuinely amazing part of my life, and I'm glad our paths crossed.</p>
+
+    <div
+      class="lock"
+      onclick="unlock()"
+    >
+      ♡
     </div>
+
+    <div
+      class="tiny"
+      style="color:#b98196"
+    >
+      one more thing
+    </div>
+
+    <h2 class="section-title">
+      A tiny thank you
+    </h2>
+
+    <p class="section-sub">
+      There is one last little message hidden here.
+      You don't have to click it.
+    </p>
+
+
+    <div id="secretMessage">
+
+      <h3>
+        Okay, you found it. ♡
+      </h3>
+
+      <p>
+        Thank you for the laughs, the conversations, and the memories.
+        I hope you know you have been a genuinely amazing part of my life,
+        and I'm glad our paths crossed.
+      </p>
+
+    </div>
+
   </div>
+
 </section>
 
-<!-- END -->
+
+<!-- =========================
+     ENDING
+========================= -->
+
 <section class="page" id="ending">
+
   <div>
-    <div class="big-heart">♡</div>
-    <h2>That's all.</h2>
-    <p>No big expectations. No complicated ending. Just a small gift from me to you, because I wanted you to have it.<br><br><strong>Thank you for being someone worth making this for Sha.</strong></p>
+
+    <div class="big-heart">
+      ♡
+    </div>
+
+    <h2>
+      That's all.
+    </h2>
+
+    <p>
+      No big expectations. No complicated ending.
+      Just a small gift from me to you, because I wanted you to have it.
+      <br><br>
+
+      <strong>
+        Thank you for being someone worth making this for Sha.
+      </strong>
+    </p>
+
   </div>
+
 </section>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
-  // =========================
-  // PERSONALIZE THESE
-  // =========================
+
+  /* =========================
+     PERSONALIZATION
+  ========================= */
+
   const CRUSH_NAME = "Rinny";
   const YOUR_NAME = "Miru";
 
-  // =========================
-  // BUILT-IN PHOTO MEMORIES
-  // =========================
+
+  /* =========================
+     BUILT-IN PHOTO MEMORIES
+  ========================= */
+
   const BUILT_IN_MEMORIES = [
+
     {
       image: "image/WhatsApp Image 2026-09-03 at 1.32.54 PM.jpeg",
       date: "special moment",
       title: "Half a Heart",
       text: "One of my absolute favourite pictures with you."
     },
+
     {
       image: "image/WhatsApp Image 2026-09-03 at 1.32.55 PM (1).jpeg",
       date: "event day",
       title: "Peace & Cosplay",
       text: "You always carry so much amazing energy."
     },
+
     {
       image: "image/WhatsApp Image 2026-09-03 at 1.32.56 PM.jpeg",
       date: "event day",
       title: "Paws & Smiles",
       text: "A cute moment worth keeping."
     }
+
   ];
 
-  document.getElementById("crush").textContent = Rinny;
-  document.getElementById("heroCrush").textContent = Rinny;
-  document.getElementById("sender").textContent = Miru;
+
+  /* =========================
+     PERSONALIZE PAGE
+  ========================= */
+
+  document.getElementById("crush").textContent = CRUSH_NAME;
+
+  document.getElementById("heroCrush").textContent = CRUSH_NAME;
+
+  document.getElementById("sender").textContent = YOUR_NAME;
+
+
+  /* =========================
+     ELEMENTS
+  ========================= */
 
   const nav = document.getElementById("nav");
+
   const gallery = document.getElementById("memoryGallery");
-  const photoInput = document.getElementById("photoInput");
+
   const lightbox = document.getElementById("lightbox");
+
   const lightboxImage = document.getElementById("lightboxImage");
+
   const lightboxCaption = document.getElementById("lightboxCaption");
-  const STORAGE_KEY = "for-you-memory-photos-v1";
+
+
+  /* =========================
+     HERO / START
+  ========================= */
 
   function startGift(){
+
     nav.classList.add("show");
-    document.getElementById("reasons").scrollIntoView({behavior:"smooth"});
+
+    document
+      .getElementById("reasons")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
     makeHearts(12);
+
   }
+
+
+  /* =========================
+     NAVIGATION
+  ========================= */
 
   function go(id){
-    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+
+    document
+      .getElementById(id)
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
   }
+
+
+  /* =========================
+     SECRET MESSAGE
+  ========================= */
 
   function unlock(){
-    document.getElementById("secretMessage").classList.add("show");
+
+    document
+      .getElementById("secretMessage")
+      .classList.add("show");
+
     makeHearts(25);
+
   }
+
+
+  /* =========================
+     FLOATING HEARTS
+  ========================= */
 
   function makeHearts(amount){
-    const symbols=["♡","♥","❤","✦","·"];
-    for(let i=0;i<amount;i++){
-      setTimeout(()=>{
-        const h=document.createElement("span");
-        h.className="heart";
-        h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-        h.style.left=Math.random()*100+"vw";
-        h.style.fontSize=(15+Math.random()*28)+"px";
-        h.style.animationDuration=(3+Math.random()*3)+"s";
+
+    const symbols = [
+      "♡",
+      "♥",
+      "❤",
+      "✦",
+      "·"
+    ];
+
+
+    for(let i = 0; i < amount; i++){
+
+      setTimeout(() => {
+
+        const h = document.createElement("span");
+
+        h.className = "heart";
+
+        h.textContent =
+          symbols[
+            Math.floor(
+              Math.random() * symbols.length
+            )
+          ];
+
+
+        h.style.left =
+          Math.random() * 100 + "vw";
+
+
+        h.style.fontSize =
+          (15 + Math.random() * 28) + "px";
+
+
+        h.style.animationDuration =
+          (3 + Math.random() * 3) + "s";
+
+
         document.body.appendChild(h);
-        setTimeout(()=>h.remove(),6500);
-      },i*80);
+
+
+        setTimeout(() => {
+          h.remove();
+        },6500);
+
+      }, i * 80);
+
     }
+
   }
 
-  function addMemoryCard(memory, sourceType="builtin"){
-    const card=document.createElement("div");
-    card.className="photo-memory";
 
-    const img=document.createElement("img");
-    img.src=memory.image;
-    img.alt=memory.title || "Memory photo";
-    img.loading="lazy";
+  /* =========================
+     MEMORY GALLERY
+  ========================= */
 
-    const deleteButton=document.createElement("button");
-    deleteButton.className="delete-photo";
-    deleteButton.type="button";
-    deleteButton.title="Remove memory";
-    deleteButton.textContent="×";
+  function addMemoryCard(memory){
 
-    const caption=document.createElement("div");
-    caption.className="photo-caption";
+    const card = document.createElement("div");
 
-    const date=document.createElement("div");
-    date.className="photo-date";
-    date.textContent=memory.date || "memory";
+    card.className = "photo-memory";
 
-    const title=document.createElement("h3");
-    title.textContent=memory.title || "One of my favourites ♡";
 
-    const text=document.createElement("p");
-    text.textContent=memory.text || "A little moment I wanted to keep.";
+    const img = document.createElement("img");
 
-    caption.append(date,title,text);
-    card.append(img,caption,deleteButton);
+    img.src = memory.image;
+
+    img.alt = memory.title || "Memory photo";
+
+    img.loading = "lazy";
+
+
+    const caption = document.createElement("div");
+
+    caption.className = "photo-caption";
+
+
+    const date = document.createElement("div");
+
+    date.className = "photo-date";
+
+    date.textContent =
+      memory.date || "memory";
+
+
+    const title = document.createElement("h3");
+
+    title.textContent =
+      memory.title || "One of my favourites ♡";
+
+
+    const text = document.createElement("p");
+
+    text.textContent =
+      memory.text ||
+      "A little moment I wanted to keep.";
+
+
+    caption.appendChild(date);
+
+    caption.appendChild(title);
+
+    caption.appendChild(text);
+
+
+    card.appendChild(img);
+
+    card.appendChild(caption);
+
+
     gallery.appendChild(card);
 
-    card.addEventListener("click",(event)=>{
-      if(event.target===deleteButton) return;
+
+    /* Click photo to open lightbox */
+
+    card.addEventListener("click", () => {
+
       openLightbox(memory);
+
     });
 
-    deleteButton.addEventListener("click",(event)=>{
-      event.stopPropagation();
-      card.remove();
-      if(sourceType==="local") removeStoredMemory(memory.id);
-    });
   }
+
+
+  /* =========================
+     LOAD BUILT-IN MEMORIES
+  ========================= */
 
   function loadBuiltInMemories(){
-    BUILT_IN_MEMORIES.forEach(memory=>addMemoryCard(memory,"builtin"));
-  }
 
-  function loadStoredMemories(){
-    try{
-      const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
-      saved.forEach(memory=>addMemoryCard(memory,"local"));
-    }catch(error){
-      console.warn("Could not load saved memories.",error);
-    }
-  }
+    BUILT_IN_MEMORIES.forEach(memory => {
 
-  function saveStoredMemory(memory){
-    try{
-      const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
-      saved.push(memory);
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(saved));
-    }catch(error){
-      alert("This photo is too large to save in the browser. For the permanent version, put the image in the images folder and add it to BUILT_IN_MEMORIES.");
-      console.warn(error);
-    }
-  }
+      addMemoryCard(memory);
 
-  function removeStoredMemory(id){
-    try{
-      const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(saved.filter(memory=>memory.id!==id)));
-    }catch(error){
-      console.warn("Could not remove saved memory.",error);
-    }
-  }
-
-  photoInput.addEventListener("change",function(){
-    Array.from(this.files).forEach(file=>{
-      if(!file.type.startsWith("image/")) return;
-
-      const reader=new FileReader();
-      reader.onload=function(event){
-        const memory={
-          id:Date.now()+"-"+Math.random().toString(16).slice(2),
-          image:event.target.result,
-          date:"a little memory",
-          title:"One of my favourites ♡",
-          text:"A little moment I wanted to keep."
-        };
-        addMemoryCard(memory,"local");
-        saveStoredMemory(memory);
-      };
-      reader.readAsDataURL(file);
     });
-    this.value="";
-  });
+
+  }
+
+
+  /* =========================
+     LIGHTBOX
+  ========================= */
 
   function openLightbox(memory){
-    lightboxImage.src=memory.image;
-    lightboxImage.alt=memory.title || "Memory photo";
-    lightboxCaption.innerHTML="<strong>"+escapeHtml(memory.title || "One of my favourites ♡")+"</strong>" +
-      (memory.text ? "<br>"+escapeHtml(memory.text) : "");
+
+    lightboxImage.src =
+      memory.image;
+
+
+    lightboxImage.alt =
+      memory.title || "Memory photo";
+
+
+    lightboxCaption.innerHTML =
+      "<strong>" +
+      escapeHtml(
+        memory.title ||
+        "One of my favourites ♡"
+      ) +
+      "</strong>" +
+
+      (
+        memory.text
+          ? "<br>" +
+            escapeHtml(memory.text)
+          : ""
+      );
+
+
     lightbox.classList.add("show");
-    document.body.style.overflow="hidden";
+
+    document.body.style.overflow =
+      "hidden";
+
   }
+
 
   function closeLightbox(event){
-    if(event && event.target!==lightbox && !event.target.classList.contains("close-lightbox")) return;
+
+    /*
+      If clicking inside the image/content,
+      don't close the lightbox.
+    */
+
+    if(
+      event &&
+      event.target !== lightbox &&
+      !event.target.classList.contains("close-lightbox")
+    ){
+      return;
+    }
+
+
     lightbox.classList.remove("show");
-    document.body.style.overflow="";
+
+    document.body.style.overflow = "";
+
   }
+
+
+  /* =========================
+     HTML ESCAPE
+  ========================= */
 
   function escapeHtml(value){
-    const div=document.createElement("div");
-    div.textContent=value;
+
+    const div =
+      document.createElement("div");
+
+    div.textContent = value;
+
     return div.innerHTML;
+
   }
 
-  document.addEventListener("keydown",event=>{
-    if(event.key==="Escape") closeLightbox();
-  });
 
-  // Initial memories
+  /* =========================
+     ESC KEY
+  ========================= */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if(event.key === "Escape"){
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     SHOW NAV WHEN SCROLLING
+  ========================= */
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if(
+        window.scrollY >
+        window.innerHeight * .45
+      ){
+
+        nav.classList.add("show");
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     LOAD PHOTO MEMORIES
+  ========================= */
+
   loadBuiltInMemories();
-  loadStoredMemories();
 
-  window.addEventListener("scroll",()=>{
-    if(window.scrollY > window.innerHeight*.45) nav.classList.add("show");
-  });
 </script>
+
 </body>
 </html>
