@@ -9,8 +9,8 @@
   html{scroll-behavior:smooth}
   body{
     margin:0;
-    color:#402936;
-    background:#fff8f5;
+    color:#38253f;
+    background:#fbf7ff;
     font-family:Georgia,"Times New Roman",serif;
     overflow-x:hidden;
   }
@@ -24,7 +24,7 @@
     pointer-events:none;
     opacity:.18;
     background-image:
-      radial-gradient(#b77b8c .55px,transparent .55px);
+      radial-gradient(#9b72b8 .55px,transparent .55px);
     background-size:9px 9px;
     z-index:50;
   }
@@ -43,14 +43,14 @@
     min-height:100vh;
     flex-direction:column;
     background:
-      radial-gradient(circle at 50% 30%,#ffe6ec 0,#fff8f5 43%,#f8eee9 100%);
+      radial-gradient(circle at 50% 30%,#eadcff 0,#fbf7ff 43%,#f1e8f8 100%);
   }
 
   .tiny{
     letter-spacing:3px;
     text-transform:uppercase;
     font:11px Arial,sans-serif;
-    color:#a45b72;
+    color:#8755a6;
     margin-bottom:25px;
   }
 
@@ -59,13 +59,13 @@
     line-height:.85;
     font-weight:normal;
     margin:0;
-    color:#8e3657;
+    color:#6f3b86;
   }
 
   .hero h1 span{
     display:block;
     font-style:italic;
-    color:#c65f7d;
+    color:#9a5fc0;
   }
 
   .hero p{
@@ -76,22 +76,22 @@
   }
 
   .enter{
-    border:1px solid #a94c6d;
-    color:#8e3657;
+    border:1px solid #8e4fa8;
+    color:#6f3b86;
     background:transparent;
     padding:13px 25px;
     border-radius:50px;
     cursor:pointer;
     transition:.25s;
   }
-  .enter:hover{background:#8e3657;color:white;transform:translateY(-3px)}
+  .enter:hover{background:#6f3b86;color:white;transform:translateY(-3px)}
 
   .scroll{
     position:absolute;
     bottom:25px;
     font:11px Arial,sans-serif;
     letter-spacing:2px;
-    color:#9f6b7b;
+    color:#8e7198;
   }
 
   /* Navigation */
@@ -101,9 +101,9 @@
     left:50%;
     transform:translateX(-50%);
     z-index:40;
-    background:rgba(255,248,245,.84);
+    background:rgba(251,247,255,.84);
     backdrop-filter:blur(12px);
-    border:1px solid #efd4d8;
+    border:1px solid #ded0e8;
     padding:8px;
     border-radius:40px;
     display:none;
@@ -115,29 +115,29 @@
     background:transparent;
     padding:8px 13px;
     border-radius:25px;
-    color:#744354;
+    color:#684875;
     cursor:pointer;
     font-size:12px;
   }
-  nav button:hover{background:#f5dce2}
+  nav button:hover{background:#e8ddf1}
 
   /* Sections */
   .section-inner{width:min(1000px,100%)}
   .section-title{
     font-size:clamp(38px,7vw,65px);
     font-weight:normal;
-    color:#8e3657;
+    color:#6f3b86;
     margin:0 0 12px;
   }
   .section-sub{
-    color:#916a76;
+    color:#80668b;
     line-height:1.7;
     max-width:650px;
     margin-bottom:42px;
   }
 
   /* Reasons */
-  #reasons{background:#fff}
+  #reasons{background:#ffffff}
   .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -146,9 +146,9 @@
   .card{
     padding:30px 25px;
     min-height:190px;
-    border:1px solid #efd9dc;
-    background:#fffaf8;
-    box-shadow:0 10px 35px rgba(100,40,60,.06);
+    border:1px solid #e2d7e9;
+    background:#fcf9ff;
+    box-shadow:0 10px 35px rgba(72,42,88,.07);
     transform:rotate(var(--r));
     transition:.3s;
   }
@@ -156,19 +156,19 @@
   .number{
     font:12px Arial,sans-serif;
     letter-spacing:2px;
-    color:#bf6680;
+    color:#9868b0;
   }
   .card h3{
     font-size:23px;
     font-weight:normal;
     margin:20px 0 10px;
-    color:#863850;
+    color:#704080;
   }
-  .card p{line-height:1.7;margin:0;color:#765864}
+  .card p{line-height:1.7;margin:0;color:#705a78}
 
   /* Memory */
   #memory{
-    background:#f6e9e6;
+    background:#eee4f3;
   }
   .timeline{
     display:grid;
@@ -176,47 +176,47 @@
     gap:30px;
   }
   .memory{
-    background:#fffdfb;
+    background:#fdfaff;
     padding:25px;
-    border:1px solid #ecd3d0;
-    box-shadow:0 12px 30px rgba(100,40,40,.08);
+    border:1px solid #dfd2e7;
+    box-shadow:0 12px 30px rgba(72,42,88,.08);
   }
   .memory .date{
     font:11px Arial,sans-serif;
     letter-spacing:2px;
     text-transform:uppercase;
-    color:#ad6074;
+    color:#9060a5;
   }
   .memory h3{
     font-size:26px;
     font-weight:normal;
     margin:13px 0;
-    color:#8e3657;
+    color:#6f3b86;
   }
-  .memory p{line-height:1.75;color:#765864}
+  .memory p{line-height:1.75;color:#705a78}
 
   /* Letter */
-  #letter{background:#fff}
+  #letter{background:#ffffff}
   .paper{
-    background:#fffaf0;
+    background:#fbf7ff;
     max-width:760px;
     margin:auto;
     padding:clamp(30px,7vw,75px);
-    border:1px solid #ead9bd;
-    box-shadow:0 20px 55px rgba(80,50,30,.11);
+    border:1px solid #ded1e8;
+    box-shadow:0 20px 55px rgba(61,38,75,.11);
     position:relative;
   }
   .paper:before{
     content:"";
     position:absolute;
     inset:15px;
-    border:1px dashed #dfc99f;
+    border:1px dashed #cbb7d9;
     pointer-events:none;
   }
   .paper-content{position:relative}
   .dear{
     font-size:31px;
-    color:#8e3657;
+    color:#6f3b86;
     font-style:italic;
     margin-bottom:25px;
   }
@@ -228,23 +228,23 @@
   .signature{
     margin-top:30px;
     font-size:34px;
-    color:#a43f61;
+    color:#80509a;
     font-style:italic;
   }
 
   /* Secret */
   #secret{
     background:
-      radial-gradient(circle at 50% 45%,#321a29,#130b11 65%);
+      radial-gradient(circle at 50% 45%,#2b1837,#100813 65%);
     color:white;
     text-align:center;
   }
-  #secret .section-title{color:#ffd7e2}
-  #secret .section-sub{color:#cba9b5;margin-left:auto;margin-right:auto}
+  #secret .section-title{color:#ead9ff}
+  #secret .section-sub{color:#bea7c9;margin-left:auto;margin-right:auto}
   .lock{
     width:110px;
     height:110px;
-    border:1px solid #8f5369;
+    border:1px solid #83529a;
     border-radius:50%;
     display:grid;
     place-items:center;
@@ -253,7 +253,7 @@
     cursor:pointer;
     transition:.4s;
   }
-  .lock:hover{transform:rotate(12deg) scale(1.05);border-color:#f1a2bc}
+  .lock:hover{transform:rotate(12deg) scale(1.05);border-color:#c89ce2}
   #secretMessage{
     display:none;
     max-width:600px;
@@ -264,10 +264,10 @@
   #secretMessage h3{
     font-size:40px;
     font-weight:normal;
-    color:#ffc6d7;
+    color:#dec0ff;
     margin:15px 0;
   }
-  #secretMessage p{line-height:1.9;color:#e5cbd3}
+  #secretMessage p{line-height:1.9;color:#d5c4df}
 
   @keyframes appear{
     from{opacity:0;transform:translateY(20px)}
@@ -278,7 +278,7 @@
   #ending{
     min-height:85vh;
     text-align:center;
-    background:#fff0f2;
+    background:#f2e9f8;
   }
   .big-heart{
     font-size:72px;
@@ -293,10 +293,10 @@
     font-size:clamp(48px,9vw,90px);
     font-weight:normal;
     font-style:italic;
-    color:#8e3657;
+    color:#6f3b86;
     margin:12px 0;
   }
-  #ending p{line-height:1.8;max-width:570px;margin:0 auto;color:#765864}
+  #ending p{line-height:1.8;max-width:570px;margin:0 auto;color:#705a78}
 
   /* Hearts */
   .heart{
