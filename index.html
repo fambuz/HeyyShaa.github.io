@@ -1,1 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:#402936;
+    background:#fff8f5;
+    font-family:Georgia,"Times New Roman",serif;
+    overflow-x:hidden;
+  }
+  button{font:inherit}
 
+  /* Soft paper texture */
+  body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:
+      radial-gradient(#b77b8c .55px,transparent .55px);
+    background-size:9px 9px;
+    z-index:50;
+  }
+
+  .page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:70px 22px;
+  }
+
+  .hero{
+    text-align:center;
+    min-height:100vh;
+    flex-direction:column;
+    background:
+      radial-gradient(circle at 50% 30%,#ffe6ec 0,#fff8f5 43%,#f8eee9 100%);
+  }
+
+  .tiny{
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font:11px Arial,sans-serif;
+    color:#a45b72;
+    margin-bottom:25px;
+  }
+
+  h1{
+    font-size:clamp(60px,13vw,125px);
+    line-height:.85;
+    font-weight:normal;
+    margin:0;
+    color:#8e3657;
+  }
+
+  .hero h1 span{
+    display:block;
+    font-style:italic;
+    color:#c65f7d;
+  }
+
+  .hero p{
+    max-width:540px;
+    line-height:1.8;
+    margin:35px auto;
+    font-size:17px;
+  }
+
+  .enter{
+    border:1px solid #a94c6d;
+    color:#8e3657;
+    background:transparent;
+    padding:13px 25px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.25s;
+  }
+  .enter:hover{background:#8e3657;color:white;transform:translateY(-3px)}
+
+  .scroll{
+    position:absolute;
+    bottom:25px;
+    font:11px Arial,sans-serif;
+    letter-spacing:2px;
+    color:#9f6b7b;
+  }
+
+  /* Navigation */
+  nav{
+    position:fixed;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:40;
+    background:rgba(255,248,245,.84);
+    backdrop-filter:blur(12px);
+    border:1px solid #efd4d8;
+    padding:8px;
+    border-radius:40px;
+    display:none;
+    gap:4px;
+  }
+  nav.show{display:flex}
+  nav button{
+    border:0;
+    background:transparent;
+    padding:8px 13px;
+    border-radius:25px;
+    color:#744354;
+    cursor:pointer;
+    font-size:12px;
+  }
+  nav button:hover{background:#f5dce2}
+
+  /* Sections */
+  .section-inner{width:min(1000px,100%)}
+  .section-title{
+    font-size:clamp(38px,7vw,65px);
+    font-weight:normal;
+    color:#8e3657;
+    margin:0 0 12px;
+  }
+  .section-sub{
+    color:#916a76;
+    line-height:1.7;
+    max-width:650px;
+    margin-bottom:42px;
+  }
+
+  /* Reasons */
+  #reasons{background:#fff}
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .card{
+    padding:30px 25px;
+    min-height:190px;
+    border:1px solid #efd9dc;
+    background:#fffaf8;
+    box-shadow:0 10px 35px rgba(100,40,60,.06);
+    transform:rotate(var(--r));
+    transition:.3s;
+  }
+  .card:hover{transform:rotate(0) translateY(-7px)}
+  .number{
+    font:12px Arial,sans-serif;
+    letter-spacing:2px;
+    color:#bf6680;
+  }
+  .card h3{
+    font-size:23px;
+    font-weight:normal;
+    margin:20px 0 10px;
+    color:#863850;
+  }
+  .card p{line-height:1.7;margin:0;color:#765864}
+
+  /* Memory */
+  #memory{
+    background:#f6e9e6;
+  }
+  .timeline{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+  .memory{
+    background:#fffdfb;
+    padding:25px;
+    border:1px solid #ecd3d0;
+    box-shadow:0 12px 30px rgba(100,40,40,.08);
+  }
+  .memory .date{
+    font:11px Arial,sans-serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#ad6074;
+  }
+  .memory h3{
+    font-size:26px;
+    font-weight:normal;
+    margin:13px 0;
+    color:#8e3657;
+  }
+  .memory p{line-height:1.75;color:#765864}
+
+  /* Letter */
+  #letter{background:#fff}
+  .paper{
+    background:#fffaf0;
+    max-width:760px;
+    margin:auto;
+    padding:clamp(30px,7vw,75px);
+    border:1px solid #ead9bd;
+    box-shadow:0 20px 55px rgba(80,50,30,.11);
+    position:relative;
+  }
+  .paper:before{
+    content:"";
+    position:absolute;
+    inset:15px;
+    border:1px dashed #dfc99f;
+    pointer-events:none;
+  }
+  .paper-content{position:relative}
+  .dear{
+    font-size:31px;
+    color:#8e3657;
+    font-style:italic;
+    margin-bottom:25px;
+  }
+  .paper p{
+    font-size:17px;
+    line-height:2;
+    margin:0 0 20px;
+  }
+  .signature{
+    margin-top:30px;
+    font-size:34px;
+    color:#a43f61;
+    font-style:italic;
+  }
+
+  /* Secret */
+  #secret{
+    background:
+      radial-gradient(circle at 50% 45%,#321a29,#130b11 65%);
+    color:white;
+    text-align:center;
+  }
+  #secret .section-title{color:#ffd7e2}
+  #secret .section-sub{color:#cba9b5;margin-left:auto;margin-right:auto}
+  .lock{
+    width:110px;
+    height:110px;
+    border:1px solid #8f5369;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    margin:0 auto 28px;
+    font-size:40px;
+    cursor:pointer;
+    transition:.4s;
+  }
+  .lock:hover{transform:rotate(12deg) scale(1.05);border-color:#f1a2bc}
+  #secretMessage{
+    display:none;
+    max-width:600px;
+    margin:auto;
+    animation:appear .8s ease;
+  }
+  #secretMessage.show{display:block}
+  #secretMessage h3{
+    font-size:40px;
+    font-weight:normal;
+    color:#ffc6d7;
+    margin:15px 0;
+  }
+  #secretMessage p{line-height:1.9;color:#e5cbd3}
+
+  @keyframes appear{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:none}
+  }
+
+  /* Ending */
+  #ending{
+    min-height:85vh;
+    text-align:center;
+    background:#fff0f2;
+  }
+  .big-heart{
+    font-size:72px;
+    animation:beat 1.25s infinite;
+  }
+  @keyframes beat{
+    0%,100%{transform:scale(1)}
+    15%{transform:scale(1.15)}
+    30%{transform:scale(1)}
+  }
+  #ending h2{
+    font-size:clamp(48px,9vw,90px);
+    font-weight:normal;
+    font-style:italic;
+    color:#8e3657;
+    margin:12px 0;
+  }
+  #ending p{line-height:1.8;max-width:570px;margin:0 auto;color:#765864}
+
+  /* Hearts */
+  .heart{
+    position:fixed;
+    pointer-events:none;
+    z-index:60;
+    animation:rise 4s linear forwards;
+    bottom:-30px;
+  }
+  @keyframes rise{
+    to{transform:translateY(-110vh) rotate(30deg);opacity:0}
+  }
+
+  @media(max-width:700px){
+    .cards,.timeline{grid-template-columns:1fr}
+    .card{transform:none}
+    nav button{padding:8px 9px;font-size:10px}
+    .paper p{font-size:15.5px}
+  }
+</style>
+</head>
+
+<body>
+
+<nav id="nav">
+  <button onclick="go('home')">home</button>
+  <button onclick="go('reasons')">little things</button>
+  <button onclick="go('memory')">memories</button>
+  <button onclick="go('letter')">letter</button>
+  <button onclick="go('secret')">secret</button>
+</nav>
+
+<!-- HERO -->
+<section class="page hero" id="home">
+  <div>
+    <div class="tiny">a little gift, made with care</div>
+    <h1>For <span>You.</span></h1>
+    <p>
+      There are probably a thousand better ways to give someone a gift,
+      but I wanted to make something that couldn't be bought in a shop.
+      So... I made you a tiny piece of the internet.
+    </p>
+    <button class="enter" onclick="startGift()">open your gift ♡</button>
+  </div>
+  <div class="scroll">↓ keep scrolling</div>
+</section>
+
+<!-- REASONS -->
+<section class="page" id="reasons">
+  <div class="section-inner">
+    <div class="tiny">the little things</div>
+    <h2 class="section-title">Things I like about you</h2>
+    <p class="section-sub">
+      Not a ranking. Not a checklist. Just a few things that make you,
+      well... you.
+    </p>
+
+    <div class="cards">
+      <div class="card" style="--r:-2deg">
+        <div class="number">01</div>
+        <h3>Your smile</h3>
+        <p>It has a strange ability to make a completely normal moment feel better.</p>
+      </div>
+      <div class="card" style="--r:1.5deg">
+        <div class="number">02</div>
+        <h3>The way you are</h3>
+        <p>You don't have to pretend to be someone else. That's one of my favourite things.</p>
+      </div>
+      <div class="card" style="--r:-1deg">
+        <div class="number">03</div>
+        <h3>The little moments</h3>
+        <p>Even the random conversations somehow become memories I want to keep.</p>
+      </div>
+      <div class="card" style="--r:1deg">
+        <div class="number">04</div>
+        <h3>Your energy</h3>
+        <p>There is something about being around you that makes things feel lighter.</p>
+      </div>
+      <div class="card" style="--r:-1.5deg">
+        <div class="number">05</div>
+        <h3>The unexpected</h3>
+        <p>You have a way of making ordinary days unexpectedly interesting.</p>
+      </div>
+      <div class="card" style="--r:2deg">
+        <div class="number">06</div>
+        <h3>Simply you</h3>
+        <p>Honestly, I could keep writing these. But then this website would never end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORY TIMELINE -->
+<section class="page" id="memory">
+  <div class="section-inner">
+    <div class="tiny">our little timeline</div>
+    <h2 class="section-title">Moments worth remembering</h2>
+    <p class="section-sub">Replace these with your own memories, inside jokes, dates or screenshots.</p>
+
+    <div class="timeline">
+      <div class="memory">
+        <div class="date">the beginning</div>
+        <h3>When we first met</h3>
+        <p>Write your own memory here. What did you notice? What made you remember them?</p>
+      </div>
+      <div class="memory">
+        <div class="date">one random day</div>
+        <h3>That conversation</h3>
+        <p>Add an inside joke, a funny conversation, or something tiny that still makes you smile.</p>
+      </div>
+      <div class="memory">
+        <div class="date">somewhere between</div>
+        <h3>A favourite memory</h3>
+        <p>This can be anything: a trip, a school day, a game, a call, or simply hanging out.</p>
+      </div>
+      <div class="memory">
+        <div class="date">right now</div>
+        <h3>This little website</h3>
+        <p>Technically, this is now another memory. And hopefully a pretty good one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section class="page" id="letter">
+  <div class="section-inner">
+    <div class="tiny">something I wanted to say</div>
+    <div class="paper">
+      <div class="paper-content">
+        <div class="dear">Dear <span id="crush">you</span>,</div>
+
+        <!-- EDIT THIS LETTER -->
+        <p>
+          I spent way too long trying to figure out what to write here.
+          Then I realised that I didn't need some perfect, dramatic speech.
+          I just needed to be honest.
+        </p>
+
+        <p>
+          I really like you. I like the way you can make me laugh,
+          the little things you do without thinking about them, and the
+          memories that somehow become my favourite parts of the day.
+        </p>
+
+        <p>
+          I don't know exactly where life is going to take us, and I'm not
+          writing this expecting you to give me some huge answer.
+          I just wanted you to know that you are genuinely important to me.
+        </p>
+
+        <p>
+          So this is my slightly embarrassing, slightly cheesy,
+          completely handmade way of saying:
+          <strong>I'm really glad I met you.</strong>
+        </p>
+
+        <div class="signature">— <span id="sender">your name</span> ♡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECRET -->
+<section class="page" id="secret">
+  <div class="section-inner">
+    <div class="lock" onclick="unlock()">♡</div>
+    <div class="tiny" style="color:#b98196">there's one more thing</div>
+    <h2 class="section-title">A secret message</h2>
+    <p class="section-sub">
+      There is absolutely no reason to click the heart above.
+      Seriously. Don't.
+    </p>
+
+    <div id="secretMessage">
+      <h3>Okay, you found it. 😭</h3>
+      <p>
+        If I could put every happy little moment you've given me into a box,
+        wrap it with a ribbon and give it back to you, I would.
+        Until technology invents that, this website will have to do.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- END -->
+<section class="page" id="ending">
+  <div>
+    <div class="big-heart">♡</div>
+    <h2>That's all.</h2>
+    <p>
+      No big expectations. No complicated ending.
+      Just a small gift from me to you, because I wanted you to have it.
+    </p>
+  </div>
+</section>
+
+<script>
+  // =========================
+  // PERSONALIZE THESE
+  // =========================
+  const CRUSH_NAME = "your crush";
+  const YOUR_NAME = "your name";
+
+  document.getElementById("crush").textContent = CRUSH_NAME;
+  document.getElementById("sender").textContent = YOUR_NAME;
+
+  const nav = document.getElementById("nav");
+
+  function startGift(){
+    nav.classList.add("show");
+    document.getElementById("reasons").scrollIntoView({behavior:"smooth"});
+    makeHearts(12);
+  }
+
+  function go(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  }
+
+  function unlock(){
+    document.getElementById("secretMessage").classList.add("show");
+    makeHearts(25);
+  }
+
+  function makeHearts(amount){
+    const symbols=["♡","♥","❤","✦","·"];
+    for(let i=0;i<amount;i++){
+      setTimeout(()=>{
+        const h=document.createElement("span");
+        h.className="heart";
+        h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+        h.style.left=Math.random()*100+"vw";
+        h.style.fontSize=(15+Math.random()*28)+"px";
+        h.style.animationDuration=(3+Math.random()*3)+"s";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),6500);
+      },i*80);
+    }
+  }
+
+  // Show navigation once the user has started moving through the gift.
+  window.addEventListener("scroll",()=>{
+    if(window.scrollY > window.innerHeight*.45) nav.classList.add("show");
+  });
+</script>
+</body>
+</html>
